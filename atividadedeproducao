@@ -1,0 +1,64 @@
+// O código realiza operações matemáticas sob demanda do usuário. Git: eduardaparalasalle
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    // declaração das variáveis, n1 e n2 para os operandos, escolha para a opção desejada e resultado para o resultado da operação
+    float n1, n2, resultado;
+    int escolha;
+    // identificação do estudante e apresentação das opções
+    printf("Eduarda Dias Martins\nTecnólogo em Análise e Desenvolvimento de Sistemas\nUniversidade La Salle\n202112639\nQual operação deseja realizar?\n1 - Raiz quadrada\n2 - Soma\n3 - Subtração\n4 - Divisão\n5 - Multiplicação\n6 - Potenciação\n");
+    //leitura da opção
+    scanf("%d", &escolha);
+    //filtro para raiz quadrada
+    if(escolha == 1){
+        printf("\nInsira os operandos:");
+        printf("\nRadicando:");
+        scanf("%f", &n1);
+        resultado = sqrt(n1);
+    }
+    else if(escolha>6||escolha<1){ //filtro para opção inexistente
+        printf("\nEssa opção não existe!");
+    }
+    else{
+        printf("\nInsira os operandos:");
+        switch(escolha){ //estrutura de seleção
+            case 2: //soma
+                scanf("%f", &n1);
+                scanf("%f", &n2);
+                resultado = n1 + n2;
+            break;
+            case 3: //subtração
+                scanf("%f", &n1);
+                scanf("%f", &n2);
+                resultado = n1 - n2;
+            break;
+            case 4://divisão
+                scanf("%f", &n1);
+                scanf("%f", &n2);
+                if(n2 == 0){ //filtro divisão por zero
+                    printf("Não existe divisão por zero.");
+                }
+                else {
+                    resultado = n1/n2;
+                    printf("\nResultado: %f", resultado); //exibe o resultado
+                }
+            break;
+            case 5: //multiplicação
+                scanf("%f", &n1);
+                scanf("%f", &n2);
+                resultado = n1 * n2;    
+            break;
+            case 6: //potenciação
+                scanf("%f", &n1);
+                scanf("%f", &n2);
+                resultado = pow(n1, n2);
+            break;
+        }
+    }
+    if(escolha!=4){ //filtro divisão por zero
+       printf("\nResultado: %f", resultado); //exibe o resultado
+    }
+    
+    return 0;
+}
